@@ -6,8 +6,23 @@
           http://www.liquibase.org/xml/ns/dbchangelog
           http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
 
-    <changeSet id="1" author="alexey">
-        <!-- Здесь будут твои таблицы, индексы и т.д. -->
+    <changeSet id="create_table_users" author="alexey">
+        <preConditions>
+            <not>
+                <tableExists tableName="users" schemaName="auth"></tableExists>
+            </not>
+        </preConditions>
+        <sqlFile path="create_table_users.sql" relativeToChangelogFile="true"></sqlFile>
     </changeSet>
+
+    <changeSet id="create_table_user_roles" author="alexey">
+        <preConditions>
+            <not>
+                <tableExists tableName="user_roles" schemaName="auth"></tableExists>
+            </not>
+        </preConditions>
+        <sqlFile path="create_table_user_roles.sql" relativeToChangelogFile="true"></sqlFile>
+    </changeSet>
+
 
 </databaseChangeLog>

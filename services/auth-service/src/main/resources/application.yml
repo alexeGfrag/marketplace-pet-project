@@ -8,10 +8,14 @@ spring:
     password: ${SPRING_DATASOURCE_PASSWORD:postgres}
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    enabled: true
+    change-log: classpath:db.changelog/master.xml  # путь к вашему master changelog
+    default-schema: auth  # если используете схему market
 
 management:
   endpoints:

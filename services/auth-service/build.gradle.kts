@@ -31,6 +31,7 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0")
     compileOnly("org.projectlombok:lombok:1.18.42")
     annotationProcessor("org.projectlombok:lombok:1.18.42")
+    implementation("org.liquibase:liquibase-core")
 }
 
 tasks.withType<Test> {

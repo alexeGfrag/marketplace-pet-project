@@ -36,6 +36,7 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-marketplace} || exit 1"]
       interval: 10s
@@ -91,7 +92,7 @@ services:
 
 volumes:
   zookeeper_data:
-  kafka_data:
   pgdata:
   mongodata:
   redisdata:
+  kafka_data:
