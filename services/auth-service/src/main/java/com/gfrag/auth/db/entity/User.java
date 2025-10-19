@@ -26,7 +26,7 @@ public class User implements Serializable {
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
             name = "UUID",
-            strategy = "org.hibernate.id.Generator:"
+            strategy = "org.hibernate.id.Generator"
     )
     @Column(updatable = false, nullable = false)
     private UUID id;
