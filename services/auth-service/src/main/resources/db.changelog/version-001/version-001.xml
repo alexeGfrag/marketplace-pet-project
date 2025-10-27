@@ -24,5 +24,17 @@
         <sqlFile path="create_table_user_roles.sql" relativeToChangelogFile="true"></sqlFile>
     </changeSet>
 
+    <changeSet id="create_user_admin" author="alexey">
+        <preConditions>
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*)
+                FROM auth.users
+                where email = 'superadmin@marketplace.com'
+                  and roles = 'ADMIN';
+            </sqlCheck>
+
+        </preConditions>
+        <sqlFile path="create_user_admin.sql" relativeToChangelogFile="true"></sqlFile>
+    </changeSet>
 
 </databaseChangeLog>

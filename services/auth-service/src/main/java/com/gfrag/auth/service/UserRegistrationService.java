@@ -27,15 +27,15 @@ public class UserRegistrationService {
     }
 
     public UserDto register(RegisterRequest registerRequest) {
-        log.debug("Try to register user with email: {}", registerRequest.getEmail());
+        log.debug("Try to register user with email: {}", registerRequest.email());
 
-        if (userRepository.existsByEmail(registerRequest.getEmail())) {
+        if (userRepository.existsByEmail(registerRequest.email())) {
             throw new RegistrationException("Email already registered");
         }
         try {
             User user = new User();
-            user.setEmail(registerRequest.getEmail());
-            user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
+            user.setEmail(registerRequest.email());
+            user.setPassword(passwordEncoder.encode(registerRequest.password()));
             user.setRoles(Collections.singleton(UserRole.USER));
             return userMapper.toDto(userRepository.save(user));
         } catch (Exception e) {

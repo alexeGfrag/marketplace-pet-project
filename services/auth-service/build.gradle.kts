@@ -34,6 +34,7 @@ dependencies {
     implementation("org.liquibase:liquibase-core")
     implementation("org.mapstruct:mapstruct:1.6.3")
     annotationProcessor("org.mapstruct:mapstruct-processor:1.6.3")
+    runtimeOnly("com.h2database:h2")
 }
 
 tasks.withType<Test> {

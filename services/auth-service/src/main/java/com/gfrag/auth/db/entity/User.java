@@ -21,8 +21,8 @@ import java.util.UUID;
 public class User implements Serializable {
 
 
-    public static final String TABLE_NAME = "auth";
-    public static final String SCHEMA_NAME = "marketplace";
+    public static final String TABLE_NAME = "users";
+    public static final String SCHEMA_NAME = "auth";
 
     @Serial
     private static final long serialVersionUID = 1L;

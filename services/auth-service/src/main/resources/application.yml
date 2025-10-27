@@ -14,8 +14,8 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
   liquibase:
     enabled: true
-    change-log: classpath:db.changelog/master.xml  # путь к вашему master changelog
-    default-schema: auth  # если используете схему market
+    change-log: classpath:db.changelog/master.xml
+    default-schema: auth
 
 management:
   endpoints:
