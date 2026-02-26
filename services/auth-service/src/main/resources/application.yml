@@ -13,9 +13,17 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
   liquibase:
-    enabled: true
+    enabled: false
     change-log: classpath:db.changelog/master.xml
     default-schema: auth
+  data:
+    mongodb:
+      uri: mongodb://admin:secret@localhost:27017/marketplace
+      host: localhost
+      port: 27017
+      database: marketplace
+      username: admin
+      password: secret
 
 management:
   endpoints:
