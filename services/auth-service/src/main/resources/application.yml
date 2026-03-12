@@ -18,12 +18,13 @@ spring:
     default-schema: auth
   data:
     mongodb:
-      uri: mongodb://admin:secret@mongo:27017/marketplace
+      uri: mongodb://admin:secret@mongo:27017/marketplace?authSource=admin
       host: mongo
       port: 27017
       database: marketplace
       username: admin
       password: secret
+      authentication-database: admin
 
 management:
   endpoints:
