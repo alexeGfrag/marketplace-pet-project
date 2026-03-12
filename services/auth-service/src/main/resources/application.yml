@@ -19,7 +19,7 @@ spring:
   data:
     mongodb:
       uri: mongodb://admin:secret@localhost:27017/marketplace
-      host: localhost
+      host: mongo
       port: 27017
       database: marketplace
       username: admin
