@@ -32,11 +32,15 @@ public class TestController {
 
     @GetMapping("/getGoods")
     public List<Goods> getGoods() {
-        return goodsRepository.findAll();
+        log.info("Получим список всех товаров");
+        List<Goods> allGoods = goodsRepository.findAll();
+        log.info("All goods: {}", allGoods);
+        return allGoods;
     }
 
     @GetMapping("/init")
     public void insertOneGoods() {
+        log.info("Добавим тестовый товар");
         Goods goods = new Goods();
         goods.setId(UUID.randomUUID().toString());
         goods.setCost(BigDecimal.valueOf(666));

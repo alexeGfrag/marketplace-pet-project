@@ -2,6 +2,7 @@ plugins {
     java
     id("org.springframework.boot") version "3.5.6"
     id("io.spring.dependency-management") version "1.1.7"
+    id("org.openapi.generator") version "7.14.0"
 }
 
 group = "com.gfrag"
@@ -14,6 +15,19 @@ java {
     }
 }
 
+openApiGenerate {
+    generatorName.set("java")
+    inputSpec.set("/home/alexey/marketplace-pet-project/infra/dtos.yaml")
+    outputDir.set("/home/alexey/marketplace-pet-project/services/auth-service/src/main/java/com/gfrag/auth/dto/openapiGenerated")
+    modelPackage.set("com.example.dto")
+    generateModelTests.set(false)
+    generateModelDocumentation.set(false)
+    configOptions.set(mapOf(
+        "dateLibrary" to "java21",
+        "useBeanValidation" to "true"
+    ))
+}
+
 repositories {
     mavenCentral()
 }
@@ -24,6 +38,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.16")
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("org.postgresql:postgresql")
@@ -40,6 +55,7 @@ dependencies {
     annotationProcessor("org.mapstruct:mapstruct-processor:1.6.3")
     runtimeOnly("com.h2database:h2")
 }
+
 
 tasks.withType<Test> {
     useJUnitPlatform()
